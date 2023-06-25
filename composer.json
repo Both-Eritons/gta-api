@@ -1,0 +1,21 @@
+{
+  "name": "eriton/gta-api",
+  "description": "API Feito com PHP Puro para o Site EritonLandia",
+  "require": {
+    "marrios/router": "v2.1.1.x-dev",
+    "vlucas/phpdotenv": "^5.5@dev",
+    "firebase/php-jwt": "dev-main"
+  },
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Eriton Nekro"
+    }
+  ],
+  "minimum-stability": "dev"
+}

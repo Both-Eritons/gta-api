@@ -1,0 +1,5 @@
+/.env
+/sla.js
+/sql.sql
+/nohup.out
+/vendor/
