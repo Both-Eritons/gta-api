@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Repositories\UserRepository;
+use App\Helpers\API\Json;
 
 class UserController {
   private $repo = null;
@@ -17,20 +18,17 @@ class UserController {
     $json = file_get_contents("php://input");
     $data = json_decode($json);
 
-    $user = $data->username;
-    $pass = $data->password;
-
-    $userValidation = isset($user) && !empty($user);
-    $passValidation = isset($pass) && !empty($pass);
+    $userValidation = isset($data->username) && !empty($data->username);
+    $passValidation = isset($data->password) && !empty($data->password);
 
     if($userValidation && $passValidation) {
 
-      $this->repo->create($user, $pass);
+      $this->repo->create($data->username, $data->password);
 
     } else {
       
-      http_response_code(401);
-      echo json_encode(array("error" => "esta faltando alguma informacao!"));
+      Json::sendJson(400, "esta faltando informacoes.");
+      //echo json_encode(array("error" => "esta faltando alguma informacao!"));
       die();
     }
   }
