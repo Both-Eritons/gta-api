@@ -1,5 +1,6 @@
 /.env
 /sla.js
 /sql.sql
+/sla.*
 /nohup.out
 /vendor/
