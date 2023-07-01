@@ -20,7 +20,7 @@ class UserController {
 
     $userValidation = isset($data->username) && !empty($data->username);
     $passValidation = isset($data->password) && !empty($data->password);
-
+    
     if($userValidation && $passValidation) {
 
       $this->repo->create($data->username, $data->password);
@@ -28,8 +28,8 @@ class UserController {
     } else {
       
       Json::sendJson(400, "esta faltando informacoes.");
-      //echo json_encode(array("error" => "esta faltando alguma informacao!"));
       die();
+
     }
   }
 }
